@@ -10,9 +10,12 @@ $(document).ready(function(){
 
 	init();
 });
-
+var wh = 0;
+var bh = 0;
+var ratio = 0;
 var selectors = ["h1"];
 var elements = [];
+var emptyPageMap = '<div id="pageIndicator"></div>';
 var config = {
 	"scrollSpeed": 300
 }
@@ -27,11 +30,16 @@ function init(){
 	$(window).bind("resize", function(){
 		redrawMap();
 	});
+	$(window).bind("scroll", function(){
+		drawScrollIndicator();
+	});
 	redrawMap();
+	drawScrollIndicator();
 }
 
 function slideToElement(source){
-	$.scrollTo($(this).data('element'), config.scrollSpeed);
+	console.log("scrollTo ",$(source).data('element'));
+	$.scrollTo($(source).data('element'), config.scrollSpeed);
 	/* Old version:
 	for(id in elements){
 		if($(elements[id].mapElement).is(source)){
@@ -44,9 +52,9 @@ function slideToElement(source){
 
 function redrawMap(){
 	// also do this if font size/magnification changes
-	$('#pageMap').empty();
-	var wh = $(window).height();
-	var bh = $('body').height();
+	$('#pageMap').html(emptyPageMap);
+	wh = $(window).height();
+	bh = $('body').height();
 	elements = [];
 	for(sid in selectors){
 		console.log("dealing with "+sid);
@@ -81,10 +89,8 @@ function redrawMap(){
 }
 
 function drawElements(){
-	var wh = $(window).height();
-	var bh = $('body').height();
 	$('#pageMap').height(wh);
-	var ratio = wh / bh;
+	ratio = wh / bh;
 	for(id in elements){ 
 		var element = elements[id];
 		var node = $('#pageMap .pageMap-'+element.tag)[id];
@@ -93,6 +99,15 @@ function drawElements(){
 		var h = Math.ceil(element.sectionHeight * ratio) - elementMargin;
 		$(node).height(h);
 	}
-	console.log(elements.length+" elements found: ",elements);	
+	console.log(elements.length+" elements found: ",elements);
+	drawScrollIndicator();	
+}
+
+function drawScrollIndicator(){
+	var offset = $('body').scrollTop();
+	var percent = offset / (bh - wh);
+	if(percent < 0){percent = 0;}
+	if(percent > 1){percent = 1;}
+	$('#pageMap #pageIndicator').height(wh * ratio).css('top', (percent * 100 * (1-ratio))+"%");
 }
 
