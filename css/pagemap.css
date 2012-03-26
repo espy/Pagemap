@@ -1,0 +1,19 @@
+#pageMap{
+	background: RGBA(150,50,50,0.1);
+	height: 100%;
+	width: 100px;
+	position: fixed;
+	right: 0px;
+	top: 0px;
+}
+
+.pageMap-h1{
+	background:orange;
+	width: 10px;
+	margin: 0 0 5px 75px;
+}
+
+.pageMap-h1:last-of-type{
+	background: blue;
+	margin: 0 0 0 75px;
+}
