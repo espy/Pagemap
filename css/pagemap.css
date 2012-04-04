@@ -1,5 +1,5 @@
 #pageMap{
-	background: RGBA(150,50,50,0.1);
+	/*background: RGBA(150,50,50,0.1);*/
 	height: 100%;
 	width: 100px;
 	position: fixed;
@@ -7,15 +7,63 @@
 	top: 0px;
 }
 
+#pageMap .clickTarget{
+	cursor: pointer;
+	height: 10px;
+}
+
 #pageIndicator{
+	z-index: -100;
 	width: 100px;
 	background: RGBA(150,80,50,.3);
 	position: relative;
 	float:left;
 }
 
+#preview{
+	position: fixed;
+	right: 45px;
+	background: black;
+	color: #FFF;
+	padding: 4px 8px 2px 8px;
+	margin-top: -6px;
+	display: block;
+	text-align: right;
+	text-transform: uppercase;
+	font-family: Helvetica;
+	font-size: 12px;
+	height: 16px;
+}
+
+#preview:after {
+	content: '';
+	height: 0;
+	position: absolute;
+	width: 0;
+	border-left: 10px solid #000;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-top: 10px solid transparent;
+	margin: -3px 0 0 8px;
+}
+
 .pageMap-h1{
 	background:orange;
+	position: absolute;
+	width: 10px;
+	margin: 0 0 5px 75px;
+}
+
+.pageMap-h2{
+	background:red;
+	position: absolute;
+	width: 10px;
+	margin: 0 0 5px 75px;
+}
+
+.pageMap-p{
+	background:black;
+	position: absolute;
 	width: 10px;
 	margin: 0 0 5px 75px;
 }
