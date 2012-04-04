@@ -1,7 +1,7 @@
 #pageMap{
 	/*background: RGBA(150,50,50,0.1);*/
 	height: 100%;
-	width: 100px;
+	width: 40px;
 	position: fixed;
 	right: 0px;
 	top: 0px;
@@ -14,8 +14,8 @@
 
 #pageIndicator{
 	z-index: -100;
-	width: 100px;
-	background: RGBA(150,80,50,.3);
+	width: 50px;
+	background: RGBA(250,240,0,.1);
 	position: relative;
 	float:left;
 }
@@ -48,24 +48,24 @@
 }
 
 .pageMap-h1{
-	background:orange;
+	background:RGBA(255,0,0,1);
 	position: absolute;
 	width: 10px;
-	margin: 0 0 5px 75px;
+	margin: 0 0 5px 15px;
 }
 
 .pageMap-h2{
-	background:red;
+	background:RGBA(255,0,0,.6);
 	position: absolute;
 	width: 10px;
-	margin: 0 0 5px 75px;
+	margin: 0 0 5px 15px;
 }
 
 .pageMap-p{
-	background:black;
+	background:RGBA(255,0,0,.2);
 	position: absolute;
 	width: 10px;
-	margin: 0 0 5px 75px;
+	margin: 0 0 5px 15px;
 }
 
 .pageMap-h1:last-of-type{

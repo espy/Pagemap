@@ -31,7 +31,6 @@ function init(){
 	$('#addSubline').live('click', function(event){
 		event.preventDefault();
 		$('<h2>H2 inserted afterwards</h2>').insertAfter(this);
-		setTimeout(parseSelectors, 1000);
 	});
 
 	$('#pagemap .clickTarget').live('click', function(event){
@@ -41,7 +40,6 @@ function init(){
 	$('#pagemap .clickTarget').live('mouseenter', function(event){
 		var preview = shorten($($(this).data('element')).text());
 		showPreview(preview, this);
-		console.log("over", preview);
 	});
 
 	$('#pagemap .clickTarget').live('mouseleave', function(event){
@@ -74,7 +72,6 @@ function parseSelectors(){
 		parseSelector(selector);
 	});
 	elements.sort(comparePositions);
-	console.log("Total elements",elements.length);
 	setTimeout(parseSelectors, 1500);
 }
 
@@ -126,7 +123,6 @@ function drawPageMap() {
 
 
 function slideToElement(source){
-	console.log("scrollTo ",$(source).data('element'));
 	$.scrollTo($(source).data('element'), config.scrollSpeed);
 }
 
